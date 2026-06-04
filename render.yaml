@@ -1,0 +1,15 @@
+# render.yaml
+services:
+  - type: web
+    name: finance-tracker-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        fromGroup: finance-tracker-secrets
+      - key: JWT_SECRET
+        fromGroup: finance-tracker-secrets
