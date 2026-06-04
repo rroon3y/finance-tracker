@@ -4,7 +4,7 @@ import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
 import Dashboard from './components/Dashboard';
 
-const API = 'http://localhost:5000/api/transactions';
+const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/transactions';
 
 
 
