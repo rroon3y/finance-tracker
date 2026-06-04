@@ -4,8 +4,8 @@ services:
     name: finance-tracker-backend
     runtime: node
     rootDir: backend
-    buildCommand: npm install
-    startCommand: node index.js
+    buildCommand: cd backend && npm install
+    startCommand: node backend/index.js
     envVars:
       - key: NODE_ENV
         value: production
@@ -13,3 +13,14 @@ services:
         fromGroup: finance-tracker-secrets
       - key: JWT_SECRET
         fromGroup: finance-tracker-secrets
+
+
+         # Frontend
+  - type: web
+    name: finance-tracker-frontend
+    runtime: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://finance-tracker-backend.onrender.com/api
