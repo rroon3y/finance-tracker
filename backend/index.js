@@ -21,6 +21,8 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((err) => console.log('Connection failed:', err));
 
 
+
+
 //Test route
 app.get('/', (req, res) => {
     res.send('Finance Tracker API is running!');
