@@ -4,7 +4,8 @@ import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
 import Dashboard from './components/Dashboard';
 
-const API = 'http://localhost:5000/api/transactions';
+const API = import.meta.env.VITE_API_URL || '/api/transactions';
+
 
 function App() {
   const [transactions, setTransactions] = useState([]);
@@ -42,4 +43,5 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
+
