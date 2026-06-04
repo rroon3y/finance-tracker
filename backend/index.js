@@ -8,8 +8,13 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: [
+    'https://finance-tracker-6dqq.vercel.app',
+    'http://localhost:5173'
+  ],
+  credentials: true
+}));
 
 // Routes
 const transactionRoutes = require('./routes/transaction');
